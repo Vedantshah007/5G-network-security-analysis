@@ -74,7 +74,7 @@ cd ns-3-dev
 ./ns3 run first
 ```
 - Configured UEs (User Equipment) and eNodeBs (Base Stations) with realistic parameters.
--Enabled packet capture (PCAP) to record network traffic for analysis.
+- Enabled packet capture (PCAP) to record network traffic for analysis.
 
 Now, move the AttackSimulations folder to the ns-3-dev folder
 ```bash
