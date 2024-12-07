@@ -7,6 +7,9 @@
 - Vedant Shah (202151143) 
 - Dev Parmar (202152327) 
 
+## 💡Mentor
+- Dr. Bhupendra Kumar
+
 ---
 
 ## 📖 Project Overview
@@ -32,10 +35,11 @@ cd 5G-Virtual-Network-Security
 ```
 
 ### Step 2: Install Dependencies
-Ensure you have Python installed. Install the required dependencies using:
+Ensure you are simulating in a virtual environment. Install the required dependencies using:
 
 ```bash
-pip install -r requirements.txt
+sudo apt update
+xargs -a requirements.txt sudo apt install -y
 ```
 
 ### Step 3: Set Up NS3 and Wireshark
@@ -53,23 +57,56 @@ sudo apt install wireshark
 
 ### 1. Setting Up a 5G Virtual Network
 -Used NS3-mmWave module to simulate a 5G network.
+```bash
+git clone https://github.com/nyuwireless-unipd/ns3-mmwave.git
+cd ns-3-dev
+```
+-Command to configure network
+```bash
+./ns3 configure --enable-examples --enable-test --enable-module=all
+```
+-Command to build network
+```bash
+./ns3 build
+```
+-Command to test network
+```bash
+./ns3 run first
+```
 -Configured UEs (User Equipment) and eNodeBs (Base Stations) with realistic parameters.
 -Enabled packet capture (PCAP) to record network traffic for analysis.
+
+Now, move the AttackSimulations folder to the ns-3-dev folder
+```bash
+mv ../AttackSimulations .
+```
 
 ### 2. Eavesdropping on 5G Traffic
 -Captured packets using Wireshark during the simulation.
 -Identified traffic patterns and potential security leaks from UDP/TCP traffic logs.
 -Analyzed headers and payloads to determine the sensitivity of intercepted data.
 
+```bash
+./ns3 run AttackSimulations/eaves_droping.cc
+```
+
 ### 3. DoS Attack Simulation
 -Simulated a DoS attack to flood the network with excessive traffic.
 -Monitored the impact on latency, throughput, and resource availability.
 -Evaluated the system's resilience against high traffic loads and identified potential bottlenecks.
 
-### 4. MITM Attack Analysis
+```bash
+./ns3 run AttackSimulations/dos.cc
+```
+
+### 4. Man In The Middle Attack Analysis
 -Set up an MITM attack by intercepting and modifying packets in transit.
 -Used custom scripts to replicate unauthorized access to sensitive communications.
 -Evaluated how encryption and authentication mechanisms could mitigate such attacks.
+
+```bash
+./ns3 run AttackSimulations/man_in_middle.cc
+```
 
 ### 📊 Results and Insights
 
@@ -88,17 +125,10 @@ sudo apt install wireshark
 ### 🛠 Technologies and Tools Used
 -NS3: 5G network simulation.
 -Wireshark: Packet capture and traffic analysis.
--Python: For scripting and analysis.
--Mininet: SDN simulation and attack testing.
--OpenSSL: For simulating encryption in network traffic.
-
-### 🔒 Security Recommendations
-1. Implement end-to-end encryption for all sensitive communications.
-2. Use rate-limiting mechanisms to prevent DoS attacks.
-3. Deploy intrusion detection systems to monitor abnormal traffic patterns.
-4. Ensure secure key exchange protocols to mitigate MITM attacks.
 
 ### 🌐 References
--NS3 Official Documentation
--Wireshark User Guide
--Research Paper: 5G Network Security and Traffic Analysis Using Simulations
+- [NS3 Official Documentation](https://www.nsnam.org/documentation/)
+- [Wireshark User Guide](https://www.wireshark.org/docs/)
+- [Research Paper: 5G Network Security and Traffic Analysis Using Simulations](https://examplelink.com)  *(replace with the actual URL of the research paper)*
+- [NS3 mmWave Repository](https://github.com/nyuwireless-unipd/ns3-mmwave)
+
