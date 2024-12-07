@@ -56,24 +56,24 @@ sudo apt install wireshark
 ### 🔍 Methodology
 
 ### 1. Setting Up a 5G Virtual Network
--Used NS3-mmWave module to simulate a 5G network.
+- Used NS3-mmWave module to simulate a 5G network.
 ```bash
 git clone https://github.com/nyuwireless-unipd/ns3-mmwave.git
 cd ns-3-dev
 ```
--Command to configure network
+- Command to configure network
 ```bash
 ./ns3 configure --enable-examples --enable-test --enable-module=all
 ```
--Command to build network
+- Command to build network
 ```bash
 ./ns3 build
 ```
--Command to test network
+- Command to test network
 ```bash
 ./ns3 run first
 ```
--Configured UEs (User Equipment) and eNodeBs (Base Stations) with realistic parameters.
+- Configured UEs (User Equipment) and eNodeBs (Base Stations) with realistic parameters.
 -Enabled packet capture (PCAP) to record network traffic for analysis.
 
 Now, move the AttackSimulations folder to the ns-3-dev folder
@@ -82,27 +82,27 @@ mv ../AttackSimulations .
 ```
 
 ### 2. Eavesdropping on 5G Traffic
--Captured packets using Wireshark during the simulation.
--Identified traffic patterns and potential security leaks from UDP/TCP traffic logs.
--Analyzed headers and payloads to determine the sensitivity of intercepted data.
+- Captured packets using Wireshark during the simulation.
+- Identified traffic patterns and potential security leaks from UDP/TCP traffic logs.
+- Analyzed headers and payloads to determine the sensitivity of intercepted data.
 
 ```bash
 ./ns3 run AttackSimulations/eaves_droping.cc
 ```
 
 ### 3. DoS Attack Simulation
--Simulated a DoS attack to flood the network with excessive traffic.
--Monitored the impact on latency, throughput, and resource availability.
--Evaluated the system's resilience against high traffic loads and identified potential bottlenecks.
+- Simulated a DoS attack to flood the network with excessive traffic.
+- Monitored the impact on latency, throughput, and resource availability.
+- Evaluated the system's resilience against high traffic loads and identified potential bottlenecks.
 
 ```bash
 ./ns3 run AttackSimulations/dos.cc
 ```
 
 ### 4. Man In The Middle Attack Analysis
--Set up an MITM attack by intercepting and modifying packets in transit.
--Used custom scripts to replicate unauthorized access to sensitive communications.
--Evaluated how encryption and authentication mechanisms could mitigate such attacks.
+- Set up an MITM attack by intercepting and modifying packets in transit.
+- Used custom scripts to replicate unauthorized access to sensitive communications.
+- Evaluated how encryption and authentication mechanisms could mitigate such attacks.
 
 ```bash
 ./ns3 run AttackSimulations/man_in_middle.cc
@@ -111,20 +111,20 @@ mv ../AttackSimulations .
 ### 📊 Results and Insights
 
 ### ✅ Packet Analysis (Eavesdropping)
--Successfully intercepted and analyzed UDP/TCP packets.
--Revealed traffic patterns and potential vulnerabilities in unencrypted data flows.
+- Successfully intercepted and analyzed UDP/TCP packets.
+- Revealed traffic patterns and potential vulnerabilities in unencrypted data flows.
 
 ### ✅ DoS Attack Findings
--Significant increase in latency and packet loss during simulated DoS attacks.
--Identified specific components of the network more vulnerable to resource exhaustion.
+- Significant increase in latency and packet loss during simulated DoS attacks.
+- Identified specific components of the network more vulnerable to resource exhaustion.
 
 ### ✅ MITM Attack Findings
--Demonstrated the risks of unencrypted or poorly configured communication protocols.
--Highlighted the importance of encryption and secure authentication mechanisms in preventing MITM attacks.
+- Demonstrated the risks of unencrypted or poorly configured communication protocols.
+- Highlighted the importance of encryption and secure authentication mechanisms in preventing MITM attacks.
 
 ### 🛠 Technologies and Tools Used
--NS3: 5G network simulation.
--Wireshark: Packet capture and traffic analysis.
+- NS3: 5G network simulation.
+- Wireshark: Packet capture and traffic analysis.
 
 ### 🌐 References
 - [NS3 Official Documentation](https://www.nsnam.org/documentation/)
