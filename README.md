@@ -129,6 +129,5 @@ mv ../AttackSimulations .
 ### 🌐 References
 - [NS3 Official Documentation](https://www.nsnam.org/documentation/)
 - [Wireshark User Guide](https://www.wireshark.org/docs/)
-- [Research Paper: 5G Network Security and Traffic Analysis Using Simulations](https://examplelink.com)  *(replace with the actual URL of the research paper)*
 - [NS3 mmWave Repository](https://github.com/nyuwireless-unipd/ns3-mmwave)
 
